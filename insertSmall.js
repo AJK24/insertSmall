@@ -8,26 +8,45 @@
 
 
 
-var listArray  = [100, 75, 89];
-var smallestNumber = 0;
+var listArray  = [100, 75, 89]; //basic array to be tested.
 
 
-var print = function(args) {
-    console.log(args);
-}
-
+//the function designed to find the smallest number in a list
 function findSmallest(list){
-     var smallnum = list[0];
+     var smallnum = list[0];	//initial smallest number is the first number
      for(var i = 0; i < list.length; i++){
-		if(smallnum < list[i]){
+
+		if(smallnum > list[i]){	   //renames smallnum if its smaller
 			smallnum = list[i];	
 		}
 	}
 
-return smallnum;
+return smallnum;	//returns the smallest number
 }
 
-print(listArray.length); //prnts 3
-print(findSmallest(listArray)); //prints 100
+//attempts to add to the list
+function addToList(list, num){
+	var smallest =	findSmallest(list); //finds the smallest number
+	if(smallest > num){	//if smallest num is less than new - add
+		list.push(num);
+	}
+
+}
+
+
+
+console.log(listArray.length); //prnts 3
+console.log(findSmallest(listArray)); //prints 100
+
+
+addToList(listArray, 24);	//attempts to add 24 to array.
+console.log(listArray);  //prints 100, 75, 89 24
+
+
+addToList(listArray, 55);	//attemps to add 55 but cannot
+console.log(listArray);	//prints the same as above
+
+
+
 
 
